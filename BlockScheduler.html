@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>
+  var startTime;
+  function dayMaker (){
+      
+  }
+
+  function alertForm(){
+    startTime = document.getElementById("wakeUpTime").value;
+    var hideForm = document.getElementById("wakeUpForm");
+    if (hideForm.style.display === "none") {
+      hideForm.style.display = "block";
+    } else {
+      hideForm.style.display = "none";
+    }
+    var wakeUpVar = document.getElementById("wakeUpText")
+    document.getElementById("wakeUpVariable").innerHTML = startTime;
+    wakeUpVar.removeAttribute("hidden");
+  }
+
+  function getStartTime(){
+    return startTime;
+  }
+</script>
+
+</head>
+
+<body>
+
+<form id="wakeUpForm" onsubmit = "alertForm();return false">
+  <label for="wakeUpTime">Wake Up Time:</label>
+  <input type="time" id="wakeUpTime" name="wakeUpTime">
+  <input type="submit" id = "submitStartTime">
+</form>
+
+
+<p id = "wakeUpText" hidden>
+  Your Wake Up Time (In Military Time): 
+  <span id ="wakeUpVariable"></span>
+</p>
+
+<button onclick = "alert(getStartTime())">Button</button>
+
+</body>
+</html>
